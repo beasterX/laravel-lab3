@@ -3,8 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Author extends Model
 {
-    //
+    use HasFactory;
+
+    // An author can write many posts
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
