@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = Post::with(['author', 'comments'])->get();
+    return view('blog', compact('posts'));
 });
