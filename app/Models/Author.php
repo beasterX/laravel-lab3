@@ -9,7 +9,8 @@ class Author extends Model
 {
     use HasFactory;
 
-    // An author can write many posts
+    protected $fillable = ['name', 'email'];
+
     public function posts()
     {
         return $this->hasMany(Post::class);
